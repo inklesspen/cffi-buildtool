@@ -1,0 +1,20 @@
+[paths]
+source =
+   src
+   */site-packages
+
+[run]
+branch = true
+source =
+    cffi_buildtool
+    tests
+omit =
+    __main__.py
+parallel = true
+
+[report]
+show_missing = true
+precision = 2
+omit = *migrations*
+exclude_also =
+    if typing.TYPE_CHECKING

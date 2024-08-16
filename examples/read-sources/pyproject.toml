@@ -1,0 +1,18 @@
+[build-system]
+build-backend = 'mesonpy'
+requires = ['meson-python', 'cffi', 'cffi-buildtool']
+
+[project]
+authors = [
+  {name = 'Rose Davidson', email = 'rose@metaclassical.com'},
+]
+dependencies = ['cffi']
+description = 'An example of a meson-python project which uses cffi.'
+dynamic = ['version']
+license = {file = 'LICENSE'}
+name = 'netstring'
+readme = 'README.md'
+requires-python = '>=3.8'
+
+[tool.meson-python]
+limited-api = true
