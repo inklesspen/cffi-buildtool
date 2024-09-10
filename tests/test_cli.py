@@ -1,8 +1,12 @@
 import pathlib
+import platform
 
 import pytest
 
 import cffi_buildtool.cli
+
+version_reason = "pypy has an outdated cffi installed" if platform.python_implementation() == "PyPy" else "can't import needed cffi version"
+pytest.importorskip("cffi", minversion="1.17.1", reason=version_reason)
 
 
 def dont_exit(_status: int):

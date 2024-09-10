@@ -21,7 +21,7 @@ classifiers = [
   "Programming Language :: Python :: Implementation :: CPython",
   "Programming Language :: Python :: Implementation :: PyPy",
 ]
-dependencies = ['cffi']
+dependencies = ['cffi>=1.17.1']
 description = 'CFFI Buildtool helps build CFFI-based Python extension modules without setuptools.'
 dynamic = ['version']
 name = 'cffi-buildtool'

@@ -25,8 +25,8 @@ from .gen import make_ffi_from_sources
 
 def exec_python(*, output: typing.TextIO, pyfile: typing.TextIO, ffi_var: str):
     with pyfile:
-        module_name, csrc, ffi = find_ffi_in_python_script(pyfile.read(), pyfile.name, ffi_var)
-    generated = generate_c_source(module_name, csrc, ffi)
+        ffi = find_ffi_in_python_script(pyfile.read(), pyfile.name, ffi_var)
+    generated = generate_c_source(ffi)
     with output:
         output.write(generated)
 
@@ -36,7 +36,7 @@ def read_sources(*, output: typing.TextIO, module_name: str, cdef_input: typing.
         csrc = csrc_input.read()
         cdef = cdef_input.read()
     ffi = make_ffi_from_sources(module_name, cdef, csrc)
-    generated = generate_c_source(module_name, csrc, ffi)
+    generated = generate_c_source(ffi)
     with output:
         output.write(generated)
 

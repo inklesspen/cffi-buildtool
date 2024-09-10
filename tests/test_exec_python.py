@@ -29,7 +29,8 @@ def something_else():
 
 
 def test_exec_python():
-    module_name, csrc, ffi = cffi_buildtool.gen.find_ffi_in_python_script(SIMPLE, "_netstring.c.py", "ffibuilder")
+    ffi = cffi_buildtool.gen.find_ffi_in_python_script(SIMPLE, "_netstring.c.py", "ffibuilder")
+    module_name, csrc, _source_extension, _kwds = ffi._assigned_source
     assert module_name == "netstring._netstring"
     assert csrc.strip() == '#include "netstring.h"'
     cdef = "\n".join(ffi._cdefsources)
@@ -37,7 +38,8 @@ def test_exec_python():
 
 
 def test_exec_python_callable():
-    module_name, csrc, ffi = cffi_buildtool.gen.find_ffi_in_python_script(CALLABLE, "_netstring.c.py", "make_ffi")
+    ffi = cffi_buildtool.gen.find_ffi_in_python_script(CALLABLE, "_netstring.c.py", "make_ffi")
+    module_name, csrc, _source_extension, _kwds = ffi._assigned_source
     assert module_name == "netstring._netstring"
     assert csrc.strip() == '#include "netstring.h"'
     cdef = "\n".join(ffi._cdefsources)

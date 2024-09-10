@@ -1,7 +1,6 @@
 import io
 
 from cffi.api import FFI
-from cffi.recompiler import Recompiler
 
 
 def _execfile(pysrc, filename, globs: dict):
@@ -20,9 +19,7 @@ def find_ffi_in_python_script(pysrc: str, filename: str, ffivar: str):
         ffi = ffi()
     if not isinstance(ffi, FFI):
         raise TypeError(f"Found an object with the name {ffivar!r} but it was not an instance of cffi.api.FFI")
-    # TODO: improve this; https://github.com/python-cffi/cffi/issues/47
-    module_name, source, source_extension, kwds = ffi._assigned_source
-    return module_name, source, ffi
+    return ffi
 
 
 def make_ffi_from_sources(modulename: str, cdef: str, csrc: str):
@@ -32,11 +29,7 @@ def make_ffi_from_sources(modulename: str, cdef: str, csrc: str):
     return ffibuilder
 
 
-def generate_c_source(module_name: str, csrc: str, ffi: FFI):
-    # TODO: improve this; https://github.com/python-cffi/cffi/issues/47
-    recompiler = Recompiler(ffi, module_name)
-    recompiler.collect_type_table()
-    recompiler.collect_step_tables()
+def generate_c_source(ffi: FFI):
     output = io.StringIO()
-    recompiler.write_c_source_to_f(output, csrc)
+    ffi.emit_c_code(output)
     return output.getvalue()
