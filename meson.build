@@ -1,6 +1,5 @@
 project(
     'cffi-buildtool',
-    'c',
     version: '1.1.0',
 )
 
