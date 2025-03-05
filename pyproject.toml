@@ -37,6 +37,12 @@ Repository = "https://github.com/inklesspen/cffi-buildtool.git"
 [project.scripts]
 "gen-cffi-src" = "cffi_buildtool.cli:run"
 
+[dependency-groups]
+test = [
+  "pytest>=8.3.5",
+  "pytest-cov>=5.0.0",
+]
+
 [build-system]
 build-backend = 'mesonpy'
 requires = ['meson-python']
@@ -133,3 +139,8 @@ search = "version: '{current_version}'"
 filename = "src/cffi_buildtool/__init__.py"
 replace = "__version__ = \"{new_version}\""
 search = "__version__ = \"{current_version}\""
+
+[tool.uv]
+# Force uv to _always_ rebuild when using install --editable
+# https://docs.astral.sh/uv/concepts/cache/#dynamic-metadata
+reinstall-package = ["cffi-buildtool"]

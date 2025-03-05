@@ -45,6 +45,7 @@ pip-log.txt
 .pytest
 .pytest_cache/
 .tox
+.nox
 coverage.xml
 htmlcov
 nosetests.xml
