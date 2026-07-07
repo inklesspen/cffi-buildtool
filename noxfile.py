@@ -20,7 +20,7 @@ def check(session: nox.Session):
     session.run("twine", "check", f"{tempdir}/*")
 
 
-@nox.session(python=["3.8", "3.9", "3.10", "3.11", "3.12", "3.13", "pypy3.8", "pypy3.9", "pypy3.10"], requires=["clean"])
+@nox.session(python=["3.10", "3.11", "3.12", "3.13", "pypy3.8", "pypy3.9", "pypy3.10"], requires=["clean"])
 def test(session):
     session.env["PYTHONUNBUFFERED"] = "yes"
     session.run_install("uv", "sync", "--frozen", "--group=test", env={"UV_PROJECT_ENVIRONMENT": session.virtualenv.location})

@@ -1,32 +1,30 @@
 [project]
-authors = [
-  {name = 'Rose Davidson', email = 'rose@metaclassical.com'},
-]
+authors = [{ name = 'Rose Davidson', email = 'rose@metaclassical.com' }]
 # complete classifier list: http://pypi.python.org/pypi?%3Aaction=list_classifiers
 classifiers = [
-  "Development Status :: 5 - Production/Stable",
-  "Intended Audience :: Developers",
-  "License :: OSI Approved :: MIT License",
-  "Operating System :: Unix",
-  "Operating System :: POSIX",
-  "Operating System :: Microsoft :: Windows",
-  "Programming Language :: Python",
-  "Programming Language :: Python :: 3",
-  "Programming Language :: Python :: 3 :: Only",
-  "Programming Language :: Python :: 3.8",
-  "Programming Language :: Python :: 3.9",
-  "Programming Language :: Python :: 3.10",
-  "Programming Language :: Python :: 3.11",
-  "Programming Language :: Python :: 3.12",
-  "Programming Language :: Python :: Implementation :: CPython",
-  "Programming Language :: Python :: Implementation :: PyPy",
+    "Development Status :: 7 - Inactive",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Unix",
+    "Operating System :: POSIX",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
 ]
-dependencies = ['cffi>=1.17.1']
-description = 'CFFI Buildtool helps build CFFI-based Python extension modules without setuptools.'
+dependencies = ['cffi>=2.1.0']
+description = '[DEPRECATED] CFFI Buildtool helps build CFFI-based Python extension modules without setuptools.'
 dynamic = ['version']
 name = 'cffi-buildtool'
 readme = 'README.md'
-requires-python = '>=3.8'
+requires-python = '>=3.10'
 
 [project.urls]
 Changelog = "https://github.com/inklesspen/cffi-buildtool/blob/main/CHANGELOG.md"

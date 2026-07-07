@@ -1,3 +1,9 @@
+# Deprecation notice
+
+The features provided by this tool have been [incorporated into CFFI](https://cffi.readthedocs.io/en/stable/cffi-gen-src.html), as of [CFFI version 2.1.0](https://pypi.org/project/cffi/2.1.0/).
+
+No further updates will be made to the cffi-buildtool package. You should use CFFI's `cffi-gen-src` tool instead. Thank you!
+
 # Overview
 
 CFFI Buildtool lets you build [CFFI](https://cffi.readthedocs.io/en/stable/)-based Python extension modules without setuptools.

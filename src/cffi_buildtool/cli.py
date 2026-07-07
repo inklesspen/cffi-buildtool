@@ -17,6 +17,7 @@ Why does this file exist, and why not put this in __main__?
 
 import argparse
 import typing
+import warnings
 
 from .gen import find_ffi_in_python_script
 from .gen import generate_c_source
@@ -57,8 +58,14 @@ read_sources_parser.add_argument("cdef", type=argparse.FileType("r", encoding="u
 read_sources_parser.add_argument("csrc", type=argparse.FileType("r", encoding="utf-8"), help="File containing C source prelude")
 read_sources_parser.add_argument("output", type=argparse.FileType("w", encoding="utf-8"), help="Output path for the C source")
 
+warnings.filterwarnings("default", category=DeprecationWarning, module=__name__)
+
 
 def run(args: typing.Optional[typing.Sequence[str]] = None):
+    warnings.warn(
+        "The features provided by this tool have been incorporated into CFFI as of version 2.1.0. You should switch to using CFFI's cffi-gen-src tool instead.",
+        DeprecationWarning,
+    )
     args = parser.parse_args(args=args)
     if args.mode == "exec-python":
         exec_python(output=args.output, pyfile=args.pyfile, ffi_var=args.ffi_var)
