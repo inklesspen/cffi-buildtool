@@ -1,6 +1,6 @@
 project(
     'cffi-buildtool',
-    version: '1.1.1',
+    version: '1.2.0',
 )
 
 py = import('python').find_installation(pure: true)
